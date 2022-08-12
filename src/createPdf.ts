@@ -42,7 +42,7 @@ export default async (options: Options) => {
 
     const page = await browser.newPage();
     await page.goto(href, { timeout: options.timeout, waitUntil: "networkidle2" });
-    await page.waitFor(options.waitFor);
+    await page.waitForTimeout(options.waitFor);
 
     // https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions
     const pdf = await page.pdf({
